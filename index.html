@@ -1,11 +1,184 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="mn">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Миний Портфолио</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #0d1b3e; color: #ffffff; }
+
+  /* NAV */
+  nav {
+    background-color: #0d1b3e;
+    padding: 16px 40px;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    border-bottom: 1px solid #1e2f5a;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  nav a { color: #f5c900; text-decoration: none; font-size: 15px; font-weight: 500; transition: opacity .2s; }
+  nav a:hover { opacity: .75; }
+
+  /* HERO */
+  #hero { background-color: #0d1b3e; text-align: center; padding: 80px 40px 70px; }
+  #hero h1 { font-size: 36px; font-weight: 700; color: #f5c900; margin-bottom: 16px; }
+  #hero p { font-size: 15px; color: #c0cce8; max-width: 480px; margin: 0 auto; line-height: 1.7; }
+
+  /* SECTIONS */
+  section { padding: 60px 40px; }
+  section h2 { text-align: center; font-size: 20px; font-weight: 700; color: #ffffff; margin-bottom: 32px; }
+
+  /* SKILLS */
+  #skills { background-color: #122040; }
+  .skills-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; max-width: 800px; margin: 0 auto; }
+  .skill-card {
+    background-color: #1a2e5a;
+    border: 1px solid #2a3f70;
+    border-radius: 8px;
+    padding: 28px 36px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #ffffff;
+    text-align: center;
+    min-width: 110px;
+    transition: border-color .2s, transform .2s;
+  }
+  .skill-card:hover { border-color: #f5c900; transform: translateY(-2px); }
+
+  /* PROJECTS */
+  #projects { background-color: #0d1b3e; }
+  .projects-list { max-width: 700px; margin: 0 auto; display: flex; flex-direction: column; gap: 16px; }
+  .project-card {
+    background-color: #1a2e5a;
+    border: 1px solid #2a3f70;
+    border-radius: 8px;
+    padding: 24px 28px;
+    transition: border-color .2s;
+  }
+  .project-card:hover { border-color: #f5c900; }
+  .project-card h3 { font-size: 16px; font-weight: 700; color: #f5c900; margin-bottom: 6px; }
+  .project-card p { font-size: 14px; color: #c0cce8; line-height: 1.6; }
+
+  /* CONTACT */
+  #contact { background-color: #122040; }
+  #contact h2 { margin-bottom: 24px; }
+  .contact-form { max-width: 480px; margin: 0 auto; display: flex; flex-direction: column; }
+  .contact-form label { font-size: 13px; color: #c0cce8; margin-top: 14px; margin-bottom: 6px; }
+  .contact-form input,
+  .contact-form textarea {
+    background-color: #1a2e5a;
+    border: 1px solid #f5c900;
+    border-radius: 6px;
+    padding: 12px 14px;
+    font-size: 14px;
+    color: #ffffff;
+    font-family: inherit;
+    outline: none;
+    transition: border-color .2s;
+    width: 100%;
+  }
+  .contact-form input:focus,
+  .contact-form textarea:focus { border-color: #ffffff; }
+  .contact-form textarea { resize: vertical; min-height: 90px; }
+  .submit-btn {
+    margin-top: 22px;
+    background-color: #f5c900;
+    color: #0d1b3e;
+    border: none;
+    border-radius: 6px;
+    padding: 14px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background .2s;
+    width: 100%;
+    font-family: inherit;
+  }
+  .submit-btn:hover { background-color: #e0b800; }
+  .success-msg { display: none; text-align: center; color: #f5c900; font-size: 15px; margin-top: 16px; font-weight: 600; }
+</style>
 </head>
 <body>
-    <h2>Web Technology</h2>
+
+<!-- NAV -->
+<nav>
+  <a href="#hero">Нүүр</a>
+  <a href="#skills">Миний ур чадвар</a>
+  <a href="#projects">Бүтээсэн төсөл</a>
+  <a href="#contact">Холбоо барих</a>
+  <a class="pub-admin-btn" href="login.html">⚙ Admin</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <h1>Сайн уу! [Deegii]</h1>
+  <p>Таны ур чадвар, төслүүдийг танилцуулах миний вэб сайт.</p>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <h2>Миний Ур Чадваруud</h2>
+  <div class="skills-grid">
+    <div class="skill-card">HTML</div>
+    <div class="skill-card">CSS</div>
+    <div class="skill-card">JavaScript</div>
+    <div class="skill-card">React</div>
+    <div class="skill-card">Tailwind CSS</div>
+    <div class="skill-card">PHP</div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <h2>Бүтээсэн төсөл</h2>
+  <div class="projects-list">
+    <div class="project-card">
+      <h3>Төслийн нэр</h3>
+      <p>Төслийн тайлбар</p>
+    </div>
+    <div class="project-card">
+      <h3>Төслийн нэр</h3>
+      <p>Төслийн тайлбар</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <h2>Холбоо барих</h2>
+  <div class="contact-form">
+    <label>Таны нэр:</label>
+    <input type="text" id="c-name" />
+    <label>И-мэйл хаяг:</label>
+    <input type="email" id="c-email" />
+    <label>Танилцуулга:</label>
+    <textarea id="c-msg"></textarea>
+    <button class="submit-btn" onclick="submitForm()">Илгээх</button>
+    <div class="success-msg" id="success-msg">✓ Амжилттай илгээгдлээ!</div>
+  </div>
+</section>
+
+<script>
+  function submitForm() {
+    const name = document.getElementById('c-name').value.trim();
+    const email = document.getElementById('c-email').value.trim();
+    const msg = document.getElementById('c-msg').value.trim();
+    if (!name || !email || !msg) { alert('Бүх талбарыг бөглөнө үү!'); return; }
+    document.getElementById('success-msg').style.display = 'block';
+    document.getElementById('c-name').value = '';
+    document.getElementById('c-email').value = '';
+    document.getElementById('c-msg').value = '';
+  }
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      document.querySelector(a.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+</script>
 </body>
 </html>

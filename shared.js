@@ -1,0 +1,62 @@
+// ==================== SHARED DATA STORE (localStorage) ====================
+
+const DEFAULT_MENUS = [
+  { id: 1, name: 'Нүүр хуудас', url: 'index.html', order: 1 },
+  { id: 2, name: 'Бидний тухай', url: '#about', order: 2 },
+  { id: 3, name: 'Холбоо барих', url: '#contact', order: 3 },
+];
+
+const DEFAULT_NEWS = [
+  { id: 1, title: 'Манай шинэ вэбсайт нээлт', type: 'news', content: 'Манай байгууллагын шинэчлэгдсэн вэбсайт амжилттай нээгдлээ.', date: '2025-04-01' },
+  { id: 2, title: 'GitHub Pages дотор байршуулах', type: 'project', content: 'Front-end статик сайтаа GitHub Pages-д байршуулах төсөл.', date: '2025-04-10' },
+];
+
+const Store = {
+  getMenus() {
+    const d = localStorage.getItem('cms_menus');
+    return d ? JSON.parse(d) : DEFAULT_MENUS;
+  },
+  saveMenus(menus) {
+    localStorage.setItem('cms_menus', JSON.stringify(menus));
+  },
+  getNews() {
+    const d = localStorage.getItem('cms_news');
+    return d ? JSON.parse(d) : DEFAULT_NEWS;
+  },
+  saveNews(news) {
+    localStorage.setItem('cms_news', JSON.stringify(news));
+  },
+  getNextMenuId() {
+    const id = parseInt(localStorage.getItem('cms_next_menu_id') || '4');
+    localStorage.setItem('cms_next_menu_id', id + 1);
+    return id;
+  },
+  getNextNewsId() {
+    const id = parseInt(localStorage.getItem('cms_next_news_id') || '3');
+    localStorage.setItem('cms_next_news_id', id + 1);
+    return id;
+  },
+  isLoggedIn() {
+    return sessionStorage.getItem('cms_auth') === 'true';
+  },
+  login() {
+    sessionStorage.setItem('cms_auth', 'true');
+  },
+  logout() {
+    sessionStorage.removeItem('cms_auth');
+  }
+};
+
+// ==================== TOAST ====================
+function showToast(msg) {
+  let t = document.getElementById('toast');
+  if (!t) {
+    t = document.createElement('div');
+    t.id = 'toast';
+    t.className = 'toast';
+    document.body.appendChild(t);
+  }
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2800);
+}
