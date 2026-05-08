@@ -15,7 +15,7 @@ const DEFAULT_PROFILE = {
   name: 'Deegiina',
   title: 'Front-end хөгжүүлэгч',
   bio: 'Хэрэглэгчдэд таалагдах гоё, хурдан, ажиллагаатай вэб бүтээдэг.',
-  email: 'deegii@example.com',
+  email: 'battordlgrtstsg.com',
   github: 'https://github.com',
   badge: 'Миний портфолио — 2025',
 };
